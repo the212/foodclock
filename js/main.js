@@ -109,11 +109,11 @@ $(function() {
 	setInterval( function() {
 		// Create a newDate() object and extract the hours of the current time on the visitor's
 		var hours = new Date().getHours();
-		var ampm = "pm";
+		var ampm = "am";
 
 		if (hours > 12) {
 			hours -= 12;
-			ampm = "am";
+			ampm = "pm";
 		} else if (hours === 0) {
 			hours = 12;
 		}
