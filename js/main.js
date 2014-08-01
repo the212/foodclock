@@ -33,8 +33,8 @@ $(function() {
 		$("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
 		},1000);
 
-	var main_pic = 'images/3-lunch/Harris-Ueng-eisenbergs-corned-beef-matzo-ball-soup.jpg';
 
+	var main_pic = 'images/3-lunch/Harris-Ueng-eisenbergs-corned-beef-matzo-ball-soup.jpg';
 	/****** dynamic pic **************/
 	var hour = new Date().getHours();
 
@@ -109,11 +109,11 @@ $(function() {
 	setInterval( function() {
 		// Create a newDate() object and extract the hours of the current time on the visitor's
 		var hours = new Date().getHours();
-		var ampm = "am";
+		var ampm = "pm";
 
 		if (hours > 12) {
 			hours -= 12;
-			ampm = "pm";
+			ampm = "am";
 		} else if (hours === 0) {
 			hours = 12;
 		}
