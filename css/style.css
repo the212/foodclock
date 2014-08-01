@@ -44,19 +44,30 @@ Developer @GA in NYC
 /******************************************
 /* BASE STYLES                   
 /*******************************************/
+/* 
 html { 
   background: url(../images/cc.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
+} */
 
 body {
      color: #000;
      font-size: 12px;
      line-height: 1.4;
      font-family: Raleway, Helvetica, sans-serif;
+}
+
+.bg-container {
+    background: url(../images/cc.jpg) no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    height:650px;
+    margin:10px;
 }
 
 h1 {
@@ -153,17 +164,16 @@ ul li {
      width: 800px;
      margin: 0 auto;
      padding: 30px;
-     color: #FFF;
+     color: #000;
      position: absolute;
-     bottom:50px;
+     bottom:30px;
      margin-left:50%;
      left:-400px;
-     background:rgba(0,0,0,0.2);
      text-align: center;
 }
 
 .info h2 {
-     font-size:18px;
+     font-size:16px;
      margin:15px;
      font-style: italic;
 }

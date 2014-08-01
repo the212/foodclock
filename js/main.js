@@ -127,5 +127,5 @@ $(function() {
 function changePic(main_pic) {
 	console.log("main pic: ", main_pic);
 
-	$("html").css('background', "url(" + main_pic + ") no-repeat center center fixed");
+	$(".bg-container").css('background', "url(" + main_pic + ") no-repeat center center fixed");
 }
