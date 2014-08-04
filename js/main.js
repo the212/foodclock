@@ -1,10 +1,101 @@
 $(function() {
 
-	var breakfast = ['images/1-breakfast/foodishfetish-tres-leches-doughnut-plant.jpg'];
+	var breakfast = [
 
-	var coffee = ['images/2-coffee/buvette-ny-cap-croissant.jpg', 'images/2-coffee/daniel-krieger-veselka.jpg'];
+		{
+			image: 'images/1-breakfast/foodishfetish-tres-leches-doughnut-plant.jpg',
+			food: 'Tres Leches Doughnut',
+			restaurant: 'Doughnut Plant',
+			restaurant_url: 'http://doughnutplant.com/',
+			city: 'New York City',
+			photographer: 'Jocelyn and Cathy',
+			photographer_url: 'http://foodishfetish.blogspot.com/'
+		}
 
-	var lunch = ['images/3-lunch/Harris-Ueng-eisenbergs-corned-beef-matzo-ball-soup.jpg', 'images/3-lunch/robyn-lee-russ-daughters-lunch.jpg'];
+	];
+
+	var coffee = [
+
+		{
+			image: 'images/2-coffee/buvette-ny-cap-croissant.jpg',
+			food: 'Cappuccino & Croissant',
+			restaurant: 'Buvette',
+			restaurant_url: 'http://newyork.ilovebuvette.com/',
+			city: 'New York City',
+			photographer: 'Gentl and Hyers',
+			photographer_url: 'http://www.gentlandhyers.com/'
+		},
+		{
+			image: 'images/2-coffee/daniel-krieger-veselka.jpg',
+			food: 'Coffee',
+			restaurant: 'Veselka',
+			restaurant_url: 'http://www.veselka.com/',
+			city: 'New York City',
+			photographer: 'Daniel Krieger',
+			photographer_url: 'http://instagram.com/danielkrieger'
+		}
+
+	];
+
+	var lunch = [
+
+		{
+			image: 'images/3-lunch/Harris-Ueng-eisenbergs-corned-beef-matzo-ball-soup.jpg',
+			food: 'Corned Beef & Matzo Ball Soup',
+			restaurant: "Eisenberg's Sandwich Shop",
+			restaurant_url: 'http://eisenbergsnyc.com/',
+			city: 'New York City',
+			photographer: 'Harris Ueng',
+			photographer_url: 'https://www.flickr.com/photos/spektrograf/'
+		},
+		{
+			image: 'images/3-lunch/robyn-lee-russ-daughters-lunch.jpg',
+			food: 'Lunch',
+			restaurant: 'Russ & Daughters Cafe',
+			restaurant_url: 'http://www.russanddaughterscafe.com/',
+			city: 'New York City',
+			photographer: 'Robyn Lee',
+			photographer_url: 'https://www.flickr.com/photos/roboppy/'
+		}
+
+	];
+
+	var dinner = [
+
+		{
+			image: 'images/4-dinner/robyn-lee-robataya-fried-chicken.jpg',
+			food: 'Fried Chicken',
+			restaurant: "Robataya",
+			restaurant_url: 'http://www.robataya-ny.com/',
+			city: 'New York City',
+			photographer: 'Robyn Lee',
+			photographer_url: 'https://www.flickr.com/photos/roboppy/'
+		}
+
+	];
+
+	var latenight = [
+
+		{
+			image: 'images/4-dinner/bionicgrrrl-sliders-mark.jpg',
+			food: 'Sliders',
+			restaurant: "Mark Burger",
+			restaurant_url: 'http://stmarksburger.com/',
+			city: 'New York City',
+			photographer: 'Bionic Bites',
+			photographer_url: 'http://www.bionicbites.com/'
+		},
+		{
+			image: 'images/4-dinner/daniel-krieger-katz.jpg',
+			food: 'Hot Dogs',
+			restaurant: "Katz's Delicatessen",
+			restaurant_url: 'http://katzsdelicatessen.com/',
+			city: 'New York City',
+			photographer: 'Daniel Krieger',
+			photographer_url: 'http://instagram.com/danielkrieger'
+		}
+
+	];
 
   // Handler for .ready() called.
   // Create two variable with the names of the months and days in an array
@@ -39,19 +130,20 @@ $(function() {
 	var hour = new Date().getHours();
 
 	if (hour > 12) {
-		hour -= 12;
 		switch(hour) {
+
 			case 12:
 			case 13:
 			case 14:
 				//lunch
-				main_pic = coffee[Math.floor(Math.random()*coffee.length)];
+				main_pic = lunch[Math.floor(Math.random()*lunch.length)];
 			break;
 
 			case 15:
 			case 16:
 			case 17:
 				// afternoon snack
+				main_pic = coffee[Math.floor(Math.random()*coffee.length)];
 			break;
 
 			case 18:
@@ -59,15 +151,19 @@ $(function() {
 			case 20:
 			case 21:
 				// dinner
+				main_pic = dinner[Math.floor(Math.random()*dinner.length)];
 			break;
 
 			case 22:
 			case 23:
 			case 24:
 				// late night
+				main_pic = latenight[Math.floor(Math.random()*latenight.length)];
 			break;
 
 		}
+
+		hour -= 12;
 	} else if (hour === 0) {
 		hour = 12;
 	} else {
@@ -78,7 +174,9 @@ $(function() {
 			case 3:
 			case 4:
 				// sleep time
-				var item = items[Math.floor(Math.random()*items.length)];
+				//var item = items[Math.floor(Math.random()*items.length)];
+				//lunch
+				main_pic = lunch[Math.floor(Math.random()*lunch.length)];
 			break;
 
 			case 5:
@@ -103,8 +201,9 @@ $(function() {
 
 		}
 
-		changePic(main_pic);
 	}
+
+	changePic(main_pic);
 
 	setInterval( function() {
 		// Create a newDate() object and extract the hours of the current time on the visitor's
@@ -116,6 +215,8 @@ $(function() {
 			ampm = "pm";
 		} else if (hours === 0) {
 			hours = 12;
+		} else {
+			ampm = "pm";
 		}
 		// Add a leading zero to the hours value
 		$("#hours").html(( hours < 10 ? "0" : "" ) + hours);
@@ -127,5 +228,15 @@ $(function() {
 function changePic(main_pic) {
 	console.log("main pic: ", main_pic);
 
-	$(".bg-container").css('background', "url(" + main_pic + ") no-repeat center center fixed");
+	$(".bg-container").css('background', "url(" + main_pic.image + ") no-repeat center center fixed");
+
+	$(".food").html(main_pic.food);
+
+	$(".restaurant").html(main_pic.restaurant);
+	$(".restaurant").attr('href', main_pic.restaurant_url);
+
+	$(".photographer").html(main_pic.photographer);
+	$(".photographer").attr('href', main_pic.photographer_url);
+
+	$(".city").html(main_pic.city);
 }
