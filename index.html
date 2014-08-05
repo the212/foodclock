@@ -57,6 +57,12 @@
 
 		<!-- javascript -->
 		<script src="js/jquery1.10.2.min.js"></script>
+		<script>
+			var swidth = $(window).width();
+			if (swidth < 540) {
+				window.location.replace("http://foodclock.co/blog");
+			}
+		</script>
 		<script src="js/main.min.js"></script>
 	</body>
 </html>
