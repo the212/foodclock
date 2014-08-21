@@ -212,13 +212,22 @@ $(function() {
 		var hours = new Date().getHours();
 		var ampm = "am";
 
+		console.log(hours);
+
 		if (hours > 12) {
 			hours -= 12;
 			ampm = "pm";
+			//console.log("hours GREATER THAN 12");
+		} else if (hours === 12) {
+			ampm = "pm";
+			//console.log("hours === 12");
 		} else if (hours === 0) {
 			hours = 12;
+			ampm = "am";
+			//console.log("hours == 0");
 		} else {
-			ampm = "pm";
+			ampm = "am";
+			//console.log("hours LESS THAN 12");
 		}
 		// Add a leading zero to the hours value
 		$("#hours").html(( hours < 10 ? "0" : "" ) + hours);
@@ -228,7 +237,6 @@ $(function() {
 });
 
 function changePic(main_pic) {
-	console.log("main pic: ", main_pic);
 
 	$(".bg-container").css('background', "url(" + main_pic.image + ") no-repeat center center fixed");
 
