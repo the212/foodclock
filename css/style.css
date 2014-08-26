@@ -156,10 +156,10 @@ ul {
 
 ul li {
     display: inline;
-    font-size: 18em;
+    font-size: 17em;
     text-align: center;
     font-weight:200;
-    letter-spacing: 32px;
+    letter-spacing: 26px;
 }
 
 #ampm {
